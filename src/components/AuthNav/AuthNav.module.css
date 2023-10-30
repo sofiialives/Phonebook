@@ -1,0 +1,16 @@
+.list{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+.link{
+    font-size: 20px;
+    text-decoration: none;
+    color: pink;
+    transition: color 200ms ease-in-out;
+}
+.link:hover,
+.link:focus{
+    color: rgb(241, 131, 149);
+}
