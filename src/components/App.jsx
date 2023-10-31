@@ -1,15 +1,20 @@
-import { Contacts } from 'pages/Contacts/Contacts';
 import { Layout } from 'pages/Layout/Layout';
-import { Login } from 'pages/Login/Login';
-import { Register } from 'pages/Register/Register';
-import { Suspense, useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { AppBar } from './AppBar/AppBar';
-import { Welcome } from 'pages/Welcome/Welcome';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
+import { selectIsRefreshing } from 'redux/auth/selectors';
+
+
+import { Loading } from './Loading';
+const Welcome = lazy(() => import('pages/Welcome/Welcome'));
+const Register = lazy(() => import('pages/Register/Register'));
+const Login= lazy(() => import('pages/Login/Login'));
+const Contacts = lazy(() => import('pages/Contacts/Contacts'));
 
 export function App() {
+  const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,36 +22,19 @@ export function App() {
   }, [dispatch]);
 
   return (
-    <>
-      <AppBar />
-      <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route index path="/" element={<Welcome />} />
-        <Route
-          path="/register"
-          element={
-            <Suspense>
-              <Register />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <Suspense>
-              <Login />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/contacts"
-          element={
-            <Suspense>
-              <Contacts />
-            </Suspense>
-          }
-        />
-      </Routes>
-    </>
+    !isRefreshing && (
+      <>
+        <AppBar />
+        <Suspense fallback={<Loading/>}>
+          <Routes>
+            <Route path="/" element={<Layout />} />
+            <Route index path="/" element={<Welcome />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contacts" element={<Contacts />} />
+          </Routes>
+        </Suspense>
+      </>
+    )
   );
 }

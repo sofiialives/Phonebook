@@ -55,9 +55,11 @@ export function ContactForm() {
 
   return (
     <>
-    {error && 'something went wrong'}
+      {error && 'something went wrong'}
       <form onSubmit={handleSubmit} className={css.form}>
-        <label htmlFor={id}>Name</label>
+        <label htmlFor={id} className={css.label}>
+          Name
+        </label>
         <input
           type="text"
           name="name"
@@ -70,7 +72,9 @@ export function ContactForm() {
           className={css.inputName}
           required
         />
-        <label htmlFor={id}>Number</label>
+        <label htmlFor={id} className={css.label}>
+          Number
+        </label>
         <input
           type="tel"
           name="number"
@@ -83,7 +87,7 @@ export function ContactForm() {
           required
         />
         <button type="submit" className={css.buttonContacts}>
-          Add Contact
+          +
         </button>
       </form>
     </>

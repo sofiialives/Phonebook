@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './Login.module.css';
 import { logIn } from 'redux/auth/operations';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { Navigate } from 'react-router-dom';
 
-export const Login = () => {
+const Login = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -21,7 +22,7 @@ export const Login = () => {
 
   return (
     <>
-      {!isLoggedIn && (
+      {!isLoggedIn ? (
         <form className={css.form} onSubmit={handleSubmit}>
           <h1 className={css.title}>Login</h1>
           <ul className={css.list}>
@@ -46,7 +47,9 @@ export const Login = () => {
             Login
           </button>
         </form>
-      )}
+      ) : (<Navigate to='/contacts'/>)}
     </>
   );
 };
+
+export default Login;

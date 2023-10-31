@@ -1,13 +1,42 @@
-.inputName{
-    margin: 0 10px;
+.inputName {
+  margin: 0 20px;
+  color: rgb(255, 173, 20);
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 8px;
 }
-.buttonContacts{
-    background-color: transparent;
-    border: 1px black solid;
-    border-radius: 3px;
-    padding: 5px;
+.buttonContacts {
+  font-size: 28px;
+  color: white;
+  background-color: rgb(81, 232, 81);
+  border: 1px rgb(81, 232, 81) solid;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out, transform 200ms,
+    box-shadow 200ms;
 }
-.form{
-    border: 2px black solid;
-    padding: 20px;
+.buttonContacts:hover,
+.buttonContacts:focus {
+  transform: scale(1.1);
+  background-color: rgb(50, 229, 50);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.form {
+  background: rgb(203, 136, 12);
+  background: linear-gradient(
+    90deg,
+    rgba(203, 136, 12, 1) 0%,
+    rgba(255, 165, 0, 1) 50%,
+    rgba(255, 217, 165, 1) 100%
+  );
+  border: 1px black solid;
+  border-radius: 4px;
+  padding: 20px;
+}
+.label {
+  font-size: 18px;
+  color: black;
 }

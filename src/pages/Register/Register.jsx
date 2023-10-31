@@ -2,8 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './Register.module.css';
 import { register } from 'redux/auth/operations';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
+import { Navigate } from 'react-router-dom';
 
-export const Register = () => {
+const Register = () => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const handleSubmit = e => {
@@ -22,7 +23,7 @@ export const Register = () => {
 
   return (
     <>
-      {!isLoggedIn && (
+      {!isLoggedIn ? (
         <form className={css.form} onSubmit={handleSubmit}>
           <h1 className={css.title}>Registration</h1>
           <ul className={css.list}>
@@ -55,7 +56,11 @@ export const Register = () => {
             Registrate
           </button>
         </form>
+      ) : (
+        <Navigate to="/contacts" />
       )}
     </>
   );
 };
+
+export default Register;

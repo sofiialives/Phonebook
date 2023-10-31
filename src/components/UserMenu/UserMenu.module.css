@@ -1,0 +1,28 @@
+.div {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.title {
+  color: green;
+  font-size: 20px;
+  background-color: rgb(122, 238, 122);
+  padding: 8px 16px;
+  border: 1px green solid;
+  border-radius: 20px;
+}
+.but {
+  color: rgb(240, 27, 27);
+  font-size: 20px;
+  background-color: rgb(250, 181, 181);
+  padding: 8px 16px;
+  border: 1px red solid;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: color 200ms ease-in-out, background-color 250ms ease-in-out;
+}
+.but:hover,
+.but:focus {
+  color: red;
+  background-color: rgb(252, 159, 159);
+}

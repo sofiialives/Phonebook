@@ -8,12 +8,12 @@ export function Navigation() {
   return (
     <nav className={css.nav}>
       <ul className={css.list}>
-        <li>
+        <li className={css.li}>
           <Link to="/" className={css.link}>
             Home
           </Link>
         </li>
-        {isLoggedIn && <li>
+        {isLoggedIn && <li className={css.li}>
           <Link to="/contacts" className={css.link}>
             Contacts
           </Link>

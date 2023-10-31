@@ -1,16 +1,22 @@
-.list{
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
+.list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
 }
-.link{
-    font-size: 20px;
-    text-decoration: none;
-    color: pink;
-    transition: color 200ms ease-in-out;
+.link {
+  font-size: 20px;
+  text-decoration: none;
+  color: #ba3cd0;
+  transition: color 200ms ease-in-out;
 }
 .link:hover,
-.link:focus{
-    color: rgb(241, 131, 149);
+.link:focus {
+  color: #9c27b0;
+}
+.li {
+  padding: 8px 16px;
+  background-color: #ead7ed;
+  border: 1px #9c27b0 solid;
+  border-radius: 20px;
 }
