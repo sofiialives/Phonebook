@@ -78,8 +78,6 @@ export function ContactForm() {
         <input
           type="tel"
           name="number"
-          pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
-          title="xxx-xx-xx"
           id={id}
           value={number}
           onChange={handleChange}

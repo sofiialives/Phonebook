@@ -1,14 +1,17 @@
 import css from './ContactList.module.css';
-import { deleteContact } from 'redux/contacts/operations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
-import { selectItems, selectFilter, selectError } from 'redux/contacts/selectors';
+import {
+  selectItems,
+  selectFilter,
+  selectError,
+} from 'redux/contacts/selectors';
+import { ContactItem } from 'components/ContactItem/ContactItem';
 
 export const ContactsList = () => {
   const error = useSelector(selectError);
   const contacts = useSelector(selectItems);
   const filter = useSelector(selectFilter);
-  const dispatch = useDispatch();
 
   const filteredContacts = useMemo(() => {
     if (filter === '') return contacts;
@@ -23,17 +26,7 @@ export const ContactsList = () => {
       {error && 'something went wrong'}
       <ul className={css.list}>
         {filteredContacts.map(contact => (
-          <li key={contact.id}>
-            <span>
-              {contact.name}: {contact.number || contact.phone}
-            </span>
-            <button
-              onClick={() => dispatch(deleteContact(contact.id))}
-              className={css.buttonFilter}
-            >
-              &#10060;
-            </button>
-          </li>
+          <ContactItem key={contact.id} contact={contact} />
         ))}
       </ul>
     </div>
