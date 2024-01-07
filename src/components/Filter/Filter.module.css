@@ -1,5 +1,5 @@
 .title3{
-    font-size: 24px;
+    font-size: 20px;
     color: rgb(255, 203, 108);
 }
 .input{
@@ -7,4 +7,9 @@
     font-size: 16px;
     padding: 4px 8px;
     border-radius: 8px;
+}
+@media only screen and (min-width: 760px) {
+    .title3{
+        font-size: 24px;
+    }
 }

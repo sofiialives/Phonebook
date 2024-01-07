@@ -8,7 +8,7 @@ export const UserMenu = () => {
     const user = useSelector(selectUser)
   return (
     <div className={css.div}>
-      <p className={css.title}>Welcome, {user.email}</p>
+      <p className={css.title}>Welcome, {user && user.name}</p>
       <button className={css.but} type="submit" onClick={() => dispatch(logOut())}>Logout</button>
     </div>
   );

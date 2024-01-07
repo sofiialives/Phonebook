@@ -7,8 +7,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 300px;
-  height: 320px;
+  width: calc(100% - 40px);
+  min-height: 320px;
   background-color: white;
   border-radius: 8px;
 }
@@ -33,7 +33,7 @@
   transition: border 200ms ease-in-out;
 }
 .input:hover,
-.input:focus{
+.input:focus {
   border: 1px green solid;
 }
 .button {
@@ -50,4 +50,9 @@
 .button:hover,
 .button:focus {
   background-color: green;
+}
+@media only screen and (min-width: 330px) {
+  .form {
+    width: 300px;
+  }
 }

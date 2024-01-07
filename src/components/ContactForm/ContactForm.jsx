@@ -57,33 +57,37 @@ export function ContactForm() {
     <>
       {error && 'something went wrong'}
       <form onSubmit={handleSubmit} className={css.form}>
-        <label htmlFor={id} className={css.label}>
-          Name
-        </label>
-        <input
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+$"
-          minLength="3"
-          maxLength="16"
-          id={id}
-          value={name}
-          onChange={handleChange}
-          className={css.inputName}
-          required
-        />
-        <label htmlFor={id} className={css.label}>
-          Number
-        </label>
-        <input
-          type="tel"
-          name="number"
-          id={id}
-          value={number}
-          onChange={handleChange}
-          className={css.inputName}
-          required
-        />
+        <div className={css.inputLabel}>
+          <label htmlFor={id} className={css.label}>
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            pattern="^[a-zA-Zа-яА-Я]+$"
+            minLength="3"
+            maxLength="16"
+            id={id}
+            value={name}
+            onChange={handleChange}
+            className={css.inputName}
+            required
+          />
+        </div>
+        <div className={css.inputLabel}>
+          <label htmlFor={id} className={css.label}>
+            Number
+          </label>
+          <input
+            type="tel"
+            name="number"
+            id={id}
+            value={number}
+            onChange={handleChange}
+            className={css.inputName}
+            required
+          />
+        </div>
         <button type="submit" className={css.buttonContacts}>
           +
         </button>

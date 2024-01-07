@@ -25,8 +25,8 @@ export const ContactsList = () => {
     <div>
       {error && 'something went wrong'}
       <ul className={css.list}>
-        {filteredContacts.map(contact => (
-          <ContactItem key={contact.id} contact={contact} />
+        {filteredContacts.map(({ id, name, number, phone }) => (
+          <ContactItem key={id} id={id} name={name} number={number} phone={phone}/>
         ))}
       </ul>
     </div>

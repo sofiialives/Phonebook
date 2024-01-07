@@ -6,20 +6,19 @@ import { selectIsLoggedIn } from 'redux/auth/selectors';
 export function Navigation() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <nav className={css.nav}>
       <ul className={css.list}>
         <li className={css.li}>
           <NavLink to="/" className={css.link}>
             Home
           </NavLink>
         </li>
-        {isLoggedIn && <li className={css.li}>
-          <NavLink to="/contacts" className={css.link}>
-            Contacts
-          </NavLink>
-        </li>}
-        
+        {isLoggedIn && (
+          <li className={css.li}>
+            <NavLink to="/contacts" className={css.link}>
+              Contacts
+            </NavLink>
+          </li>
+        )}
       </ul>
-    </nav>
   );
 }
